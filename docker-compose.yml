@@ -1,0 +1,12 @@
+version: '3.4'
+services:
+  hab:
+    image: 'maison-hab'
+    build: ./services/hab
+    restart: always
+    volumes:
+      - '/etc/localtime:/etc/localtime:ro'
+      - '/etc/timezone:/etc/timezone:ro'
+      - './services/hab/conf:/config'
+    ports:
+     - '8123:8123'
