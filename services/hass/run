@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+set -Eeuo pipefail
+
+# Set up custom components.
+rm -rf /config/custom_components
+mkdir -p /config/custom_components/light
+mkdir -p /config/custom_components/light
+wget -O /config/custom_components/light/dmx.py https://raw.githubusercontent.com/jnimmo/hass-dmx/master/dmx.py
+
+# Set up custom configuration.
+# Parse ESH templates.
+for template in /maison-hab/config/*.esh; do
+    esh -o "${template::-4}" "$template"
+done
+# Copy custom config files.
+for config in /maison-hab/config/*.yaml; do
+    cp "$config" /config/
+done
+
+# Invoke the Docker image's original command.
+python -m homeassistant --config /config

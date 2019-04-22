@@ -1,12 +1,15 @@
 version: '3.4'
 services:
-  hab:
-    image: 'maison-hab'
-    build: ./services/hab
+  hass:
+    image: 'maison-hass'
+    container_name: maison_hab_hass
+    build: ./services/hass
     restart: always
     volumes:
       - '/etc/localtime:/etc/localtime:ro'
       - '/etc/timezone:/etc/timezone:ro'
-      - './services/hab/conf:/config'
+      - './data/services/hass/config:/config'
+    environment:
+      MAISON_HAB_OLA_ADDRESS: '${MAISON_HAB_OLA_ADDRESS}'
     ports:
      - '8123:8123'

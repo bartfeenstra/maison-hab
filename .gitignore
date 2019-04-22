@@ -1,10 +1,5 @@
+### Instance-specific files and directories.
+/data
+
+### Third-party files.
 /vendor
-/services/hab/conf/.cloud
-/services/hab/conf/.storage
-/services/hab/conf/custom_components
-/services/hab/conf/deps
-/services/hab/conf/tts
-/services/hab/conf/.HA_VERSION
-/services/hab/conf/.uuid
-/services/hab/conf/home-assistant.log
-/services/hab/conf/home-assistant_v2.db

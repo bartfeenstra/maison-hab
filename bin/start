@@ -4,12 +4,4 @@ set -Eeuo pipefail
 
 cd "$(dirname "$0")/.."
 
-#if [ ! -f ./.env ]; then
-#    ./bin/build
-#fi
-#set -a
-#. ./.env
-#set +a
-
 find ./start -type f -print0 | sort -z | xargs -0 ./vendor/krab/bin/krab run
-
