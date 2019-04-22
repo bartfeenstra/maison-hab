@@ -10,11 +10,10 @@ if [ ! -d ./vendor/krab ]; then
     git clone https://github.com/bartfeenstra/krab.git ./vendor/krab
     chmod ugo+rx ./vendor/krab/bin/krab
 fi
-# @todo Make sure this only runs if the tag is not already checked out and the remote cannot be reached.
-#krab_tag='0.3'
-#git -C ./vendor/krab tag --delete "$krab_tag" || true
-#git -C ./vendor/krab fetch
-#git -C ./vendor/krab checkout "$krab_tag"
+krab_tag='0.3'
+git -C ./vendor/krab tag --delete "$krab_tag" || true
+git -C ./vendor/krab fetch
+git -C ./vendor/krab checkout "$krab_tag"
 
 find ./build -type f -print0 | sort -z | xargs -0 ./vendor/krab/bin/krab run
 

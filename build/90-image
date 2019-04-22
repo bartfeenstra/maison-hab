@@ -4,6 +4,4 @@ set -Eeuo pipefail
 
 cd "$(dirname "$0")/.."
 
-#. ./run/.env
-
-docker-compose -p maison-hab up -d
+docker-compose -p maison-hab build
