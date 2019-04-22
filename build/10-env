@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -Eeuo pipefail
+
+cd "$(dirname "$0")/.."
+
+ensure_env_mode() {
+    chmod u=rw,go= .env
+}
+
+if [ ! -f ./.env ]; then
+    cp .env.dist .env
+    ensure_env_mode
+    ./vendor/krab/bin/krab stdio-inform "A new configuration file has been saved to $(readlink -f ./.env)."
+fi
+ensure_env_mode
