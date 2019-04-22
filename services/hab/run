@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-mkdir -p /config/custom_components/light
-wget -O /config/custom_components/light/artnet.py https://raw.githubusercontent.com/spacemanspiff2007/home-assistant-artnet/master/artnet.py
-
-# Invoke the Docker image's original command.
-python -m homeassistant --config /config

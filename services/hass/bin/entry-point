@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# Copy custom config files.
+for config in /maison/conf/*.yaml; do
+    cp "$config" /config/
+done
+
+# Invoke the Docker image's original command.
+python -m homeassistant --config /config
