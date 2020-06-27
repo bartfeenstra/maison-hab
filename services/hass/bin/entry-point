@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
 
-# Copy custom config files. Home Assistant requires configuration to be editable runtime, but we want configuration as
-# code.
-for config in /maison/conf/*.yaml; do
-    cp "$config" /config/
-done
+mkdir -p /config/custom_components
+cp -R /maison/hass/config/custom_components/* /config/custom_components/
 
 # Invoke the Docker image's original command.
 python -m homeassistant --config /config
