@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# Install HACS
+wget -q -O - https://hacs.xyz/install | bash - && \
+
+# Move the third-party components into place.
 mkdir -p /config/custom_components
 cp -R /maison/hass/config/custom_components/* /config/custom_components/
 
