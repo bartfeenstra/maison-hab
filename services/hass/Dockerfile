@@ -1,12 +1,8 @@
-FROM homeassistant/home-assistant:0.111.4
+FROM homeassistant/home-assistant:2021.3.2
 
 COPY ./bin /maison/bin
 RUN chmod ug+rx /maison/bin/* && \
     mkdir -p /tmp/maison && \
-    # Install HACS
-    mkdir -p /maison/hass/config/custom_components/hacs && \
-    wget 'https://github.com/hacs/integration/releases/download/1.1.0/hacs.zip' -O /tmp/maison/hacs.zip && \
-    unzip /tmp/maison/hacs.zip -d /maison/hass/config/custom_components/hacs && \
     # Install DMX
     mkdir -p /maison/hass/config/custom_components/dmx && \
     wget 'https://github.com/bartfeenstra/hass-dmx/archive/rgbd.zip' -O /tmp/maison/dmx.zip && \
