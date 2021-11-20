@@ -1,4 +1,4 @@
-FROM homeassistant/home-assistant:2021.3.2
+FROM homeassistant/home-assistant:2021.11
 
 COPY ./bin /maison/bin
 RUN chmod ug+rx /maison/bin/* && \
