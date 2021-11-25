@@ -11,3 +11,7 @@ services:
       - './data/services/hass/conf:/config'
     ports:
      - '8123:8123'
+    networks:
+     maison:
+       aliases:
+         - hab
