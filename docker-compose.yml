@@ -10,4 +10,6 @@ services:
       - '/etc/timezone:/etc/timezone:ro'
       - './data/services/hass/conf:/config'
     ports:
-     - '8123:8123'
+      - '8123:8123'
+    extra_hosts:
+      - host.docker.internal:host-gateway
